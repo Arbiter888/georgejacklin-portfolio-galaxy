@@ -19,9 +19,9 @@ export const ProjectCard = ({ title, description, image, tags, index }: ProjectC
       viewport={{ once: true }}
       whileHover={{ y: -5 }}
     >
-      <Card className="overflow-hidden group bg-gradient-to-br from-slate-900 to-slate-800 border-slate-700 text-white">
+      <Card className="overflow-hidden group bg-gradient-to-br from-[#4CD6B4] to-[#3BA7E4] border-teal-400/20 text-white">
         <div className="relative overflow-hidden aspect-video">
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#3BA7E4]/80 to-transparent z-10"></div>
           <img
             src={image}
             alt={title}
@@ -29,10 +29,10 @@ export const ProjectCard = ({ title, description, image, tags, index }: ProjectC
           />
         </div>
         <CardHeader className="relative z-20 -mt-20">
-          <CardTitle className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-200">
+          <CardTitle className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-100 to-white">
             {title}
           </CardTitle>
-          <CardDescription className="text-blue-100/80">{description}</CardDescription>
+          <CardDescription className="text-teal-50/90">{description}</CardDescription>
         </CardHeader>
         <CardContent className="relative z-20">
           <div className="flex flex-wrap gap-2">
@@ -40,7 +40,7 @@ export const ProjectCard = ({ title, description, image, tags, index }: ProjectC
               <Badge 
                 key={tag} 
                 variant="secondary" 
-                className="bg-blue-500/10 text-blue-300 hover:bg-blue-500/20 transition-colors"
+                className="bg-teal-400/10 text-teal-100 hover:bg-teal-400/20 transition-colors"
               >
                 {tag}
               </Badge>
