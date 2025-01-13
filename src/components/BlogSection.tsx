@@ -53,7 +53,8 @@ export const BlogSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
-                  className="bg-slate-800 rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300"
+                  className="bg-slate-800 rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300 cursor-pointer"
+                  onClick={() => navigate(`/blogs/${blog.slug}`)}
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -84,12 +85,9 @@ export const BlogSection = () => {
                         {blog.published_at &&
                           format(new Date(blog.published_at), "MMM d, yyyy")}
                       </span>
-                      <button 
-                        onClick={() => navigate(`/blogs/${blog.slug}`)}
-                        className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
-                      >
+                      <span className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
                         Read more <ArrowRight className="ml-2 w-4 h-4" />
-                      </button>
+                      </span>
                     </div>
                   </div>
                 </motion.article>
