@@ -16,8 +16,7 @@ export const Contact = () => {
           Let's Connect
         </h2>
         <p className="text-lg text-light-cyan/90 mb-12">
-          Interested in collaborating or learning more about my work? 
-          I'm always open to discussing new opportunities and ideas.
+          As the creator of this site and the showcased projects, I specialize in building web applications with integrated AI capabilities. Let's discuss how I can help bring your ideas to life.
         </p>
         
         <div className="flex flex-wrap justify-center gap-4">
