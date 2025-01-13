@@ -1,30 +1,45 @@
+import { useQuery } from "@tanstack/react-query";
 import { ProjectCard } from "./ProjectCard";
+import { supabase } from "@/integrations/supabase/client";
 
-const projects = [
-  {
-    title: "Conscious Cloud",
-    description: "A revolutionary platform promoting environmental consciousness through real-time carbon footprint tracking and interactive visualizations. Features AI-powered recommendations and community engagement tools.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    tags: ["AI/ML", "Environmental Tech", "Data Visualization"],
-  },
-  {
-    title: "Product Analytics Dashboard",
-    description: "Led the development of a comprehensive analytics platform that increased user engagement by 40%. Implemented real-time data visualization and predictive analytics features.",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    tags: ["Product Strategy", "Analytics", "UX Design"],
-  },
-  {
-    title: "Enterprise Collaboration Tool",
-    description: "Streamlined team communication and project management for Fortune 500 companies. Integrated AI-powered workflow automation and real-time collaboration features.",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    tags: ["Enterprise", "Collaboration", "Agile"],
-  },
-];
+const fetchProjects = async () => {
+  const { data, error } = await supabase
+    .from('projects')
+    .select('*')
+    .order('order_index', { ascending: true });
+  
+  if (error) throw error;
+  return data;
+};
 
 export const Projects = () => {
+  const { data: projects, isLoading, error } = useQuery({
+    queryKey: ['projects'],
+    queryFn: fetchProjects,
+  });
+
+  if (isLoading) {
+    return (
+      <section className="py-20 px-4 bg-slate-950">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
+            Featured Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="h-[400px] bg-slate-800 animate-pulse rounded-lg" />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    console.error('Error loading projects:', error);
+    return null;
+  }
+
   return (
     <section className="py-20 px-4 bg-slate-950" id="projects">
       <div className="max-w-6xl mx-auto">
@@ -32,8 +47,13 @@ export const Projects = () => {
           Featured Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.title} {...project} index={index} />
+          {projects?.map((project, index) => (
+            <ProjectCard 
+              key={project.id} 
+              {...project} 
+              index={index}
+              description={project.long_description || project.description}
+            />
           ))}
         </div>
       </div>

@@ -88,9 +88,13 @@ export type Database = {
         Row: {
           created_at: string
           description: string
+          github_url: string | null
           id: string
           image_url: string | null
+          live_url: string | null
+          long_description: string | null
           order_index: number
+          status: Database["public"]["Enums"]["project_status"] | null
           tags: string[] | null
           title: string
           updated_at: string
@@ -99,9 +103,13 @@ export type Database = {
         Insert: {
           created_at?: string
           description: string
+          github_url?: string | null
           id?: string
           image_url?: string | null
+          live_url?: string | null
+          long_description?: string | null
           order_index?: number
+          status?: Database["public"]["Enums"]["project_status"] | null
           tags?: string[] | null
           title: string
           updated_at?: string
@@ -110,9 +118,13 @@ export type Database = {
         Update: {
           created_at?: string
           description?: string
+          github_url?: string | null
           id?: string
           image_url?: string | null
+          live_url?: string | null
+          long_description?: string | null
           order_index?: number
+          status?: Database["public"]["Enums"]["project_status"] | null
           tags?: string[] | null
           title?: string
           updated_at?: string
@@ -164,7 +176,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      project_status: "draft" | "published"
     }
     CompositeTypes: {
       [_ in never]: never
