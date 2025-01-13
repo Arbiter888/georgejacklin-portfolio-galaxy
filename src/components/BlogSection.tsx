@@ -1,80 +1,97 @@
 import { useQuery } from "@tanstack/react-query";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
+import { format } from "date-fns";
+import { ArrowRight } from "lucide-react";
 
 export const BlogSection = () => {
   const { data: blogs, isLoading } = useQuery({
-    queryKey: ["published-blogs"],
+    queryKey: ["blogs"],
     queryFn: async () => {
       const { data, error } = await supabase
         .from("blogs")
         .select("*")
         .eq("published", true)
-        .order("published_at", { ascending: false })
-        .limit(3);
-
+        .order("published_at", { ascending: false });
+      
       if (error) throw error;
       return data;
     },
   });
 
-  if (isLoading) {
-    return (
-      <div className="py-20 px-4 bg-slate-800">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-            Latest Blog Posts
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <Card key={i} className="bg-slate-700 animate-pulse h-64" />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <section className="py-20 px-4 bg-slate-800" id="blog">
+    <section className="py-20 px-4 bg-slate-900" id="blog">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-          Latest Blog Posts
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs?.map((blog) => (
-            <Card
-              key={blog.id}
-              className="bg-slate-700 border-slate-600 hover:border-blue-500 transition-colors cursor-pointer animate-fadeIn"
-            >
-              {blog.cover_image && (
-                <img
-                  src={blog.cover_image}
-                  alt={blog.title}
-                  className="w-full h-48 object-cover rounded-t-lg"
-                />
-              )}
-              <CardHeader>
-                <CardTitle className="text-xl text-white">{blog.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-slate-300 line-clamp-3">{blog.excerpt}</p>
-                {blog.tags && (
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {blog.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 text-xs rounded-full bg-blue-500/20 text-blue-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="space-y-12"
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
+              Free Guides & Resources
+            </h2>
+            <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+              Practical insights and detailed guides to help you build better products and make informed decisions.
+            </p>
+          </div>
+
+          {isLoading ? (
+            <div className="flex justify-center">
+              <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {blogs?.map((blog) => (
+                <motion.article
+                  key={blog.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="bg-slate-800 rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={blog.cover_image || "/placeholder.svg"}
+                      alt={blog.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                )}
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                  <div className="p-6">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {blog.tags?.map((tag, index) => (
+                        <span
+                          key={index}
+                          className="px-2 py-1 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      {blog.title}
+                    </h3>
+                    <p className="text-slate-400 mb-4 line-clamp-2">
+                      {blog.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-slate-500">
+                        {blog.published_at &&
+                          format(new Date(blog.published_at), "MMM d, yyyy")}
+                      </span>
+                      <button className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                        Read more <ArrowRight className="ml-2 w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          )}
+        </motion.div>
       </div>
     </section>
   );
