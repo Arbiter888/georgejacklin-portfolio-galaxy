@@ -1,4 +1,4 @@
-import { PanelLeftIcon, PanelRightIcon } from "lucide-react"
+import { PanelLeftIcon, NewspaperIcon, BriefcaseIcon, ClockIcon, FileTextIcon } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -19,9 +19,24 @@ const menuItems = [
     icon: PanelLeftIcon,
   },
   {
+    title: "Projects",
+    href: "/admin/projects",
+    icon: BriefcaseIcon,
+  },
+  {
     title: "Blog Posts",
     href: "/admin/posts",
-    icon: PanelRightIcon,
+    icon: NewspaperIcon,
+  },
+  {
+    title: "Timeline",
+    href: "/admin/timeline",
+    icon: ClockIcon,
+  },
+  {
+    title: "CV Management",
+    href: "/admin/cv",
+    icon: FileTextIcon,
   },
 ]
 
@@ -37,7 +52,7 @@ const AdminSidebar = () => {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.href}>
-                      <item.icon />
+                      <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
