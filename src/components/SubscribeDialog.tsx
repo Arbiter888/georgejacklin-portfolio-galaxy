@@ -58,11 +58,21 @@ export function SubscribeDialog({ isOpen, onClose, onSuccess, blogTitle }: Subsc
       }
 
       // Add new subscriber
-      const { error } = await supabase
+      const { error: subscribeError } = await supabase
         .from("subscribers")
         .insert([{ email: values.email }]);
 
-      if (error) throw error;
+      if (subscribeError) throw subscribeError;
+
+      // Send welcome email
+      const { error: emailError } = await supabase.functions.invoke('send-welcome-email', {
+        body: { to: values.email }
+      });
+
+      if (emailError) {
+        console.error("Error sending welcome email:", emailError);
+        // Don't throw here - we still want to grant access even if email fails
+      }
 
       toast({
         title: "Successfully subscribed!",
