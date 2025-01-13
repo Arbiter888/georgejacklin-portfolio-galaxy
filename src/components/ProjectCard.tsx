@@ -42,9 +42,8 @@ export const ProjectCard = ({ title, description, image, videoUrl, tags, index }
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <Card className="overflow-hidden group bg-gradient-to-br from-federal-blue via-honolulu-blue to-pacific-cyan border-blue-green/20 text-white">
-        <div className="relative overflow-hidden aspect-video">
-          <div className="absolute inset-0 bg-gradient-to-t from-federal-blue/80 to-transparent z-10"></div>
+      <Card className="overflow-hidden group bg-gradient-to-br from-federal-blue via-honolulu-blue to-pacific-cyan border-blue-green/20">
+        <div className="relative h-[300px]">
           {videoUrl && isHovered ? (
             <iframe
               src={getYouTubeEmbedUrl(videoUrl)}
@@ -59,26 +58,26 @@ export const ProjectCard = ({ title, description, image, videoUrl, tags, index }
               className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700"
             />
           )}
-        </div>
-        <CardHeader className="relative z-20 -mt-20">
-          <CardTitle className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-non-photo-blue to-white">
-            {title}
-          </CardTitle>
-          <CardDescription className="text-light-cyan/90">{description}</CardDescription>
-        </CardHeader>
-        <CardContent className="relative z-20">
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <Badge 
-                key={tag} 
-                variant="secondary" 
-                className="bg-pacific-cyan/10 text-light-cyan hover:bg-pacific-cyan/20 transition-colors"
-              >
-                {tag}
-              </Badge>
-            ))}
+          <div className="absolute inset-0 bg-gradient-to-t from-federal-blue/90 via-honolulu-blue/80 to-pacific-cyan/70">
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <h3 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-non-photo-blue to-white">
+                {title}
+              </h3>
+              <p className="text-light-cyan/90 mb-4">{description}</p>
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <Badge 
+                    key={tag} 
+                    variant="secondary" 
+                    className="bg-pacific-cyan/10 text-light-cyan hover:bg-pacific-cyan/20 transition-colors"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
           </div>
-        </CardContent>
+        </div>
       </Card>
     </motion.div>
   );
