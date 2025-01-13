@@ -2,21 +2,24 @@ import { ProjectCard } from "./ProjectCard";
 
 const projects = [
   {
+    title: "Conscious Cloud",
+    description: "A revolutionary platform promoting environmental consciousness through real-time carbon footprint tracking and interactive visualizations. Features AI-powered recommendations and community engagement tools.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    tags: ["AI/ML", "Environmental Tech", "Data Visualization"],
+  },
+  {
     title: "Product Analytics Dashboard",
-    description: "Led the development of a comprehensive analytics platform that increased user engagement by 40%",
+    description: "Led the development of a comprehensive analytics platform that increased user engagement by 40%. Implemented real-time data visualization and predictive analytics features.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     tags: ["Product Strategy", "Analytics", "UX Design"],
   },
   {
-    title: "Mobile Payment Solution",
-    description: "Revolutionized payment processing with an intuitive mobile-first approach",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
-    tags: ["FinTech", "Mobile", "User Research"],
-  },
-  {
     title: "Enterprise Collaboration Tool",
-    description: "Streamlined team communication and project management for Fortune 500 companies",
+    description: "Streamlined team communication and project management for Fortune 500 companies. Integrated AI-powered workflow automation and real-time collaboration features.",
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     tags: ["Enterprise", "Collaboration", "Agile"],
   },
 ];
