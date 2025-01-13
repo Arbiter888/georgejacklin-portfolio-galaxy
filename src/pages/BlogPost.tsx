@@ -47,13 +47,15 @@ const BlogPost = () => {
             transition={{ duration: 0.5 }}
             className="bg-slate-800 rounded-xl overflow-hidden"
           >
-            <div className="relative h-[400px] overflow-hidden">
-              <img
-                src={blog.cover_image || "/placeholder.svg"}
-                alt={blog.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            {blog.cover_image && (
+              <div className="relative h-[400px] overflow-hidden">
+                <img
+                  src={blog.cover_image}
+                  alt={blog.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
             <div className="p-8">
               <div className="flex flex-wrap gap-2 mb-4">
                 {blog.tags?.map((tag: string, index: number) => (
@@ -74,17 +76,20 @@ const BlogPost = () => {
               </div>
               <div 
                 className="prose prose-invert prose-lg max-w-none
-                  prose-headings:text-white
-                  prose-p:text-slate-300
+                  prose-headings:text-white prose-headings:font-bold
+                  prose-h1:text-4xl prose-h1:mb-8
+                  prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+                  prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+                  prose-p:text-slate-300 prose-p:leading-relaxed prose-p:mb-6
                   prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300
-                  prose-strong:text-white
-                  prose-code:text-blue-300
-                  prose-ul:text-slate-300
-                  prose-ol:text-slate-300
-                  prose-li:text-slate-300
+                  prose-strong:text-white prose-strong:font-semibold
+                  prose-code:text-blue-300 prose-code:bg-slate-700/50 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+                  prose-ul:text-slate-300 prose-ul:mb-6
+                  prose-ol:text-slate-300 prose-ol:mb-6
+                  prose-li:text-slate-300 prose-li:mb-2
                   prose-table:text-slate-300
-                  prose-img:rounded-lg
-                  prose-iframe:w-full prose-iframe:aspect-video prose-iframe:rounded-lg"
+                  prose-img:rounded-lg prose-img:my-8
+                  prose-iframe:w-full prose-iframe:aspect-video prose-iframe:rounded-lg prose-iframe:my-8"
                 dangerouslySetInnerHTML={{ __html: blog.content }}
               />
             </div>
