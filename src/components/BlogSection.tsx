@@ -85,7 +85,7 @@ export const BlogSection = () => {
                           format(new Date(blog.published_at), "MMM d, yyyy")}
                       </span>
                       <button 
-                        onClick={() => navigate('/blogs')}
+                        onClick={() => navigate(`/blogs/${blog.slug}`)}
                         className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
                       >
                         Read more <ArrowRight className="ml-2 w-4 h-4" />

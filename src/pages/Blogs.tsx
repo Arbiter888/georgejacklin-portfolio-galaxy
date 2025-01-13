@@ -55,43 +55,48 @@ const Blogs = () => {
           ) : (
             <div className="grid grid-cols-1 gap-8">
               {blogs?.map((blog) => (
-                <motion.article
+                <Link
                   key={blog.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-slate-800 rounded-xl overflow-hidden"
+                  to={`/blogs/${blog.slug}`}
+                  className="block"
                 >
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={blog.cover_image || "/placeholder.svg"}
-                      alt={blog.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-8">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {blog.tags?.map((tag, index) => (
-                        <span
-                          key={index}
-                          className="px-2 py-1 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                  <motion.article
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="bg-slate-800 rounded-xl overflow-hidden hover:transform hover:scale-[1.01] transition-all duration-300"
+                  >
+                    <div className="relative h-64 overflow-hidden">
+                      <img
+                        src={blog.cover_image || "/placeholder.svg"}
+                        alt={blog.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                    <h2 className="text-2xl font-semibold text-white mb-4">
-                      {blog.title}
-                    </h2>
-                    <p className="text-slate-400 mb-6">
-                      {blog.content}
-                    </p>
-                    <div className="flex items-center text-sm text-slate-500">
-                      {blog.published_at &&
-                        format(new Date(blog.published_at), "MMM d, yyyy")}
+                    <div className="p-8">
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {blog.tags?.map((tag, index) => (
+                          <span
+                            key={index}
+                            className="px-2 py-1 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <h2 className="text-2xl font-semibold text-white mb-4">
+                        {blog.title}
+                      </h2>
+                      <p className="text-slate-400 mb-6">
+                        {blog.excerpt}
+                      </p>
+                      <div className="flex items-center text-sm text-slate-500">
+                        {blog.published_at &&
+                          format(new Date(blog.published_at), "MMM d, yyyy")}
+                      </div>
                     </div>
-                  </div>
-                </motion.article>
+                  </motion.article>
+                </Link>
               ))}
             </div>
           )}

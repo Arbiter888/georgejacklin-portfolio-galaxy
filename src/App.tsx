@@ -3,6 +3,7 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import Blogs from "./pages/Blogs";
+import BlogPost from "./pages/BlogPost";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AdminLayout } from "./components/layouts/AdminLayout";
 import "./App.css";
@@ -12,6 +13,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/blogs" element={<Blogs />} />
+      <Route path="/blogs/:slug" element={<BlogPost />} />
       <Route path="/auth" element={<Auth />} />
       <Route
         path="/admin/*"
