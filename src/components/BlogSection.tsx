@@ -1,15 +1,10 @@
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
-import { ArrowRight, Lock } from "lucide-react";
-import { SubscribeDialog } from "./SubscribeDialog";
+import { ArrowRight, Mail } from "lucide-react";
 
 export const BlogSection = () => {
-  const [selectedBlog, setSelectedBlog] = useState<any>(null);
-  const [showDialog, setShowDialog] = useState(false);
-
   const { data: blogs, isLoading } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
@@ -24,21 +19,13 @@ export const BlogSection = () => {
     },
   });
 
-  const handleAccessClick = (blog: any) => {
-    setSelectedBlog(blog);
-    setShowDialog(true);
+  const handleAccessRequest = (blog: any) => {
+    const subject = encodeURIComponent(`Access Request: ${blog.title}`);
+    const body = encodeURIComponent(
+      `Hi George,\n\nI would like to request access to "${blog.title}" and be added to the mailing list for future guides and resources.\n\nBest regards`
+    );
+    window.location.href = `mailto:george@multiplier.info?subject=${subject}&body=${body}`;
   };
-
-  const handleSubscriptionSuccess = () => {
-    // Store access state in localStorage
-    localStorage.setItem("hasAccess", "true");
-    // Open the blog in a new tab
-    if (selectedBlog) {
-      window.open(`/blogs/${selectedBlog.slug}`, "_blank");
-    }
-  };
-
-  const hasAccess = localStorage.getItem("hasAccess") === "true";
 
   return (
     <section className="py-20 px-4 bg-slate-900" id="blog">
@@ -55,7 +42,7 @@ export const BlogSection = () => {
               Free Guides & Resources
             </h2>
             <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
-              Subscribe to get instant access to practical insights and detailed guides to help you build better products.
+              Request access to practical insights and detailed guides to help you build better products.
             </p>
           </div>
 
@@ -73,7 +60,7 @@ export const BlogSection = () => {
                   transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
                   className="bg-slate-800 rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300 cursor-pointer"
-                  onClick={() => hasAccess ? window.open(`/blogs/${blog.slug}`, "_blank") : handleAccessClick(blog)}
+                  onClick={() => handleAccessRequest(blog)}
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -105,15 +92,7 @@ export const BlogSection = () => {
                           format(new Date(blog.published_at), "MMM d, yyyy")}
                       </span>
                       <span className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
-                        {hasAccess ? (
-                          <>
-                            Read more <ArrowRight className="ml-2 w-4 h-4" />
-                          </>
-                        ) : (
-                          <>
-                            Get Access <Lock className="ml-2 w-4 h-4" />
-                          </>
-                        )}
+                        Request Access <Mail className="ml-2 w-4 h-4" />
                       </span>
                     </div>
                   </div>
@@ -123,13 +102,6 @@ export const BlogSection = () => {
           )}
         </motion.div>
       </div>
-
-      <SubscribeDialog
-        isOpen={showDialog}
-        onClose={() => setShowDialog(false)}
-        onSuccess={handleSubscriptionSuccess}
-        blogTitle={selectedBlog?.title || ""}
-      />
     </section>
   );
 };
