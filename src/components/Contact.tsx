@@ -21,22 +21,33 @@ export const Contact = () => {
         </p>
         
         <div className="flex flex-wrap justify-center gap-4">
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="gap-2 border-pacific-cyan/20 bg-pacific-cyan/10 text-light-cyan hover:bg-pacific-cyan/20 hover:text-white transition-colors"
+          <a 
+            href="mailto:george@multiplier.info"
+            className="inline-block"
           >
-            <Mail className="w-4 h-4" />
-            Email Me
-          </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="gap-2 border-pacific-cyan/20 bg-pacific-cyan/10 text-light-cyan hover:bg-pacific-cyan/20 hover:text-white transition-colors"
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="gap-2 border-pacific-cyan/20 bg-pacific-cyan/10 text-light-cyan hover:bg-pacific-cyan/20 hover:text-white transition-colors"
+            >
+              <Mail className="w-4 h-4" />
+              Email Me
+            </Button>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/george-jacklin/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Linkedin className="w-4 h-4" />
-            LinkedIn
-          </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="gap-2 border-pacific-cyan/20 bg-pacific-cyan/10 text-light-cyan hover:bg-pacific-cyan/20 hover:text-white transition-colors"
+            >
+              <Linkedin className="w-4 h-4" />
+              LinkedIn
+            </Button>
+          </a>
           <Button 
             variant="outline" 
             size="lg" 
