@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Hero } from "@/components/Hero";
 import { Projects } from "@/components/Projects";
+import { Timeline } from "@/components/Timeline";
+import { BlogSection } from "@/components/BlogSection";
 import { Contact } from "@/components/Contact";
 
 const Index = () => {
   useEffect(() => {
-    // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = "smooth";
     return () => {
       document.documentElement.style.scrollBehavior = "auto";
@@ -21,7 +22,9 @@ const Index = () => {
       className="min-h-screen bg-background text-foreground"
     >
       <Hero />
+      <Timeline />
       <Projects />
+      <BlogSection />
       <Contact />
     </motion.div>
   );
