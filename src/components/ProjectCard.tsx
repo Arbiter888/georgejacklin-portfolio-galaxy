@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
 import { Play, Github, ExternalLink } from "lucide-react";
@@ -20,7 +20,6 @@ interface ProjectCardProps {
 export const ProjectCard = ({ 
   title, 
   description, 
-  image_url, 
   video_url, 
   github_url,
   live_url,
@@ -29,7 +28,6 @@ export const ProjectCard = ({
 }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const getVideoEmbedUrl = (url: string) => {
     const youtubeRegExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -62,28 +60,27 @@ export const ProjectCard = ({
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            {video_url && isHovered ? (
-              <iframe
-                src={getVideoEmbedUrl(video_url)}
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            ) : (
-              <div className="relative w-full h-full group">
-                <img
-                  src={image_url || "https://images.unsplash.com/photo-1451187580459-43490279c0fa"}
-                  alt={title}
-                  className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700"
+            {video_url ? (
+              isHovered ? (
+                <iframe
+                  src={getVideoEmbedUrl(video_url)}
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
                 />
-                {video_url && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Play className="w-16 h-16 text-white" />
-                    <span className="absolute bottom-4 text-white text-sm font-medium">
+              ) : (
+                <div className="relative w-full h-full group bg-slate-800">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Play className="w-16 h-16 text-white/50" />
+                    <span className="absolute bottom-4 text-white/50 text-sm font-medium">
                       Hover to view demo
                     </span>
                   </div>
-                )}
+                </div>
+              )
+            ) : (
+              <div className="w-full h-full bg-slate-800 flex items-center justify-center">
+                <span className="text-white/50 text-sm">No demo available</span>
               </div>
             )}
           </div>
