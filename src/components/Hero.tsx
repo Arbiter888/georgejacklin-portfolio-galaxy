@@ -7,18 +7,20 @@ export const Hero = () => {
     <>
       <Helmet>
         <title>George Jacklin | Product Manager & AI Entrepreneur</title>
-        <meta name="description" content="George Jacklin | Product Manager and AI entrepreneur specializing in AI solutions for email marketing, customer rewards, and business automation. Leading digital transformation through innovative products." />
+        <meta name="description" content="Product Manager and AI entrepreneur specializing in AI solutions for email marketing, customer rewards, and business automation. Leading digital transformation through innovative products." />
         <meta name="keywords" content="Product Manager, AI Entrepreneur, Email Marketing, AI Solutions, Customer Rewards, Business Automation, Technology Strategy, Digital Innovation, AI Email Generation, Smart Micro-Websites" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
-        <meta property="og:description" content="Product Manager and AI entrepreneur specializing in AI solutions and digital transformation." />
+        <meta property="og:description" content="Product Manager and AI entrepreneur specializing in AI solutions for email marketing, customer rewards, and business automation. Leading digital transformation through innovative products." />
+        <meta property="og:image" content="/lovable-uploads/2b42e154-9c8d-4796-bd1e-bfeef72f3a41.png" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
-        <meta name="twitter:description" content="Product Manager and AI entrepreneur specializing in AI solutions and digital transformation." />
+        <meta name="twitter:description" content="Product Manager and AI entrepreneur specializing in AI solutions for email marketing, customer rewards, and business automation. Leading digital transformation through innovative products." />
+        <meta name="twitter:image" content="/lovable-uploads/2b42e154-9c8d-4796-bd1e-bfeef72f3a41.png" />
         
         {/* Additional SEO */}
         <meta name="author" content="George Jacklin" />
