@@ -1,27 +1,27 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Brain, Globe, Rocket } from "lucide-react";
+import { ChevronDown, Mail, Gift, Globe } from "lucide-react";
 import { Helmet } from "react-helmet";
 
 export const Hero = () => {
   return (
     <>
       <Helmet>
-        <title>George Jacklin | Product Manager & AI Entrepreneur</title>
-        <meta name="description" content="George Jacklin | Product Manager and AI entrepreneur specializing in AI solutions for personal coaching, legal tech, and startup tools. Leading digital transformation through innovative products." />
-        <meta name="keywords" content="Product Manager, AI Entrepreneur, AI Solutions, Legal Tech Innovation, Web3 Technology, AI Product Development, Technology Strategy, Digital Innovation, AI Personal Coaching, AI Agent Marketplace" />
+        <title>LevelUP! | AI-Powered Email Marketing Platform</title>
+        <meta name="description" content="LevelUP! | Generate engaging email campaigns instantly, reward loyal customers automatically, and showcase your business with AI-powered micro-websites." />
+        <meta name="keywords" content="Email Marketing, AI Email Generation, Customer Rewards, Micro-Websites, Marketing Automation, Email Campaigns, AI Marketing Tools" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
-        <meta property="og:description" content="Product Manager and AI entrepreneur specializing in AI solutions for personal coaching, legal tech, and startup tools." />
+        <meta property="og:title" content="LevelUP! | AI-Powered Email Marketing Platform" />
+        <meta property="og:description" content="Generate engaging email campaigns instantly and reward loyal customers automatically with AI-powered tools." />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
-        <meta name="twitter:description" content="Product Manager and AI entrepreneur specializing in AI solutions and digital transformation." />
+        <meta name="twitter:title" content="LevelUP! | AI-Powered Email Marketing Platform" />
+        <meta name="twitter:description" content="Transform your email marketing with AI-powered campaign generation and customer rewards." />
         
         {/* Additional SEO */}
-        <meta name="author" content="George Jacklin" />
+        <meta name="author" content="LevelUP!" />
         <meta name="robots" content="index, follow" />
       </Helmet>
       <section className="min-h-screen flex flex-col justify-center items-center px-4 relative">
@@ -29,23 +29,18 @@ export const Hero = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: 'url("/lovable-uploads/2b42e154-9c8d-4796-bd1e-bfeef72f3a41.png")',
+            backgroundImage: 'url("/lovable-uploads/f964e424-25e6-4216-a2c4-582abd1f83d4.png")',
             zIndex: 0 
           }}
         />
         
-        {/* Blue Overlay */}
+        {/* Gradient Overlay */}
         <div 
-          className="absolute inset-0 bg-federal-blue/70"
+          className="absolute inset-0 bg-gradient-to-br from-primary-purple/70 via-magenta-pink/60 to-soft-pink/50"
           style={{ zIndex: 1 }}
         />
 
-        {/* Pattern Overlay */}
-        <div 
-          className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0aDR2MWgtNHYtMXptMC0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40 mix-blend-overlay"
-          style={{ zIndex: 2 }}
-        />
-        
+        {/* Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -57,29 +52,28 @@ export const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="inline-block text-sm uppercase tracking-wider text-light-cyan mb-4 font-medium"
+            className="inline-block text-sm uppercase tracking-wider text-white mb-4 font-medium"
           >
-            Product Manager & AI Entrepreneur
+            AI-Powered Email Marketing Platform
           </motion.span>
           
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-non-photo-blue to-white"
+            className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-soft-pink"
           >
-            George Jacklin
+            LevelUP!
           </motion.h1>
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="text-lg md:text-xl text-light-cyan/90 mb-8 leading-relaxed"
+            className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed"
           >
-            Product Manager and technology entrepreneur specializing in AI, Web3, and digital transformation. 
-            Leading innovation through Multiplier AI, an AI agent marketplace for startup founders, 
-            and developing cutting-edge solutions in personal coaching and legal tech.
+            Generate engaging email campaigns instantly, reward loyal customers automatically, 
+            and showcase your business with a beautiful micro-website powered by AI.
           </motion.p>
 
           <motion.div
@@ -89,16 +83,16 @@ export const Hero = () => {
             className="flex justify-center gap-8 mb-12"
           >
             <div className="flex flex-col items-center">
-              <Brain className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">AI Innovation</span>
+              <Mail className="w-8 h-8 text-white mb-2" />
+              <span className="text-sm text-white/80">Instant Emails</span>
             </div>
             <div className="flex flex-col items-center">
-              <Globe className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">Web3 Tech</span>
+              <Gift className="w-8 h-8 text-white mb-2" />
+              <span className="text-sm text-white/80">Smart Rewards</span>
             </div>
             <div className="flex flex-col items-center">
-              <Rocket className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">Digital Growth</span>
+              <Globe className="w-8 h-8 text-white mb-2" />
+              <span className="text-sm text-white/80">Micro-Websites</span>
             </div>
           </motion.div>
         </motion.div>
@@ -110,7 +104,7 @@ export const Hero = () => {
           className="absolute bottom-10"
           style={{ zIndex: 3 }}
         >
-          <ChevronDown className="w-6 h-6 animate-bounce text-light-cyan" />
+          <ChevronDown className="w-6 h-6 animate-bounce text-white" />
         </motion.div>
       </section>
     </>
