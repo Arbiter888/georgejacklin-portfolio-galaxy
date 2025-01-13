@@ -3,7 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, FileText } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -26,7 +27,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-slate-900">
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="mb-8">
+        <div className="mb-8 flex justify-between items-center">
           <Link 
             to="/blogs" 
             className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
@@ -34,6 +35,17 @@ const BlogPost = () => {
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Blogs
           </Link>
+          {blog?.pdf_url && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-blue-400 border-blue-400 hover:bg-blue-400/10"
+              onClick={() => window.open(blog.pdf_url, '_blank')}
+            >
+              <FileText className="mr-2 h-4 w-4" />
+              Open as PDF
+            </Button>
+          )}
         </div>
         
         {isLoading ? (
