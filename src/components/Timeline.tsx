@@ -3,6 +3,12 @@ import { Education } from "./Education";
 
 const timelineItems = [
   {
+    year: "2022 - Present",
+    title: "Director & Fractional Product Manager",
+    company: "Multiplier Ltd",
+    description: "Leading a boutique management consultancy specializing in product strategy for Pre-Seed to Series A startups. Provide hands-on fractional product management and strategic advisory services, helping founders optimize their product-market fit and achieve scalable growth. Notable achievements include developing comprehensive product roadmaps, reducing customer acquisition costs by up to 40%, and successfully guiding multiple startups through international market expansion. Expertise spans social gaming, hospitality tech, and metaverse platforms, with particular focus on US market entry strategies and sustainable revenue model development.",
+  },
+  {
     year: "2021 - 2022",
     title: "Chairman & CEO",
     company: "Emerge (Metaverse Venture Studio)",
