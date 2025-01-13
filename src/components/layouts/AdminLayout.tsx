@@ -11,6 +11,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { Link, useLocation } from "react-router-dom"
 
 const menuItems = [
   {
@@ -41,6 +42,8 @@ const menuItems = [
 ]
 
 const AdminSidebar = () => {
+  const location = useLocation();
+
   return (
     <Sidebar>
       <SidebarContent>
@@ -50,11 +53,14 @@ const AdminSidebar = () => {
             <SidebarMenu>
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.href}>
+                  <SidebarMenuButton 
+                    asChild
+                    active={location.pathname === item.href}
+                  >
+                    <Link to={item.href}>
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -71,9 +77,9 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
     <SidebarProvider>
       <div className="min-h-screen flex w-full">
         <AdminSidebar />
-        <main className="flex-1 p-6">
+        <main className="flex-1 p-6 bg-background">
           <div className="container mx-auto">
-            <SidebarTrigger className="mb-4" />
+            <SidebarTrigger className="mb-4 lg:hidden" />
             {children}
           </div>
         </main>

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AdminLayout } from "@/components/layouts/AdminLayout";
 import { supabase } from "@/integrations/supabase/client";
+import { Link } from "react-router-dom";
 
 export default function Admin() {
   const { data: projectsCount } = useQuery({
@@ -48,9 +49,9 @@ export default function Admin() {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Projects</CardTitle>
               <Button variant="ghost" size="icon" asChild>
-                <a href="/admin/projects">
+                <Link to="/admin/projects">
                   <PlusCircle className="h-4 w-4" />
-                </a>
+                </Link>
               </Button>
             </CardHeader>
             <CardContent>
@@ -65,9 +66,9 @@ export default function Admin() {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Blog Posts</CardTitle>
               <Button variant="ghost" size="icon" asChild>
-                <a href="/admin/posts">
+                <Link to="/admin/posts">
                   <PlusCircle className="h-4 w-4" />
-                </a>
+                </Link>
               </Button>
             </CardHeader>
             <CardContent>
@@ -82,9 +83,9 @@ export default function Admin() {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Timeline Entries</CardTitle>
               <Button variant="ghost" size="icon" asChild>
-                <a href="/admin/timeline">
+                <Link to="/admin/timeline">
                   <PlusCircle className="h-4 w-4" />
-                </a>
+                </Link>
               </Button>
             </CardHeader>
             <CardContent>
@@ -99,11 +100,11 @@ export default function Admin() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card>
             <CardHeader>
-              <CardTitle>Upload CV</CardTitle>
+              <CardTitle>CV Management</CardTitle>
             </CardHeader>
             <CardContent>
               <Button asChild>
-                <a href="/admin/cv">Manage CV</a>
+                <Link to="/admin/cv">Manage CV</Link>
               </Button>
             </CardContent>
           </Card>
