@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
-import { Play, Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface ProjectCardProps {
@@ -26,7 +26,6 @@ export const ProjectCard = ({
   tags, 
   index 
 }: ProjectCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
   const getVideoEmbedUrl = (url: string) => {
@@ -34,7 +33,7 @@ export const ProjectCard = ({
     const youtubeMatch = url.match(youtubeRegExp);
     
     if (youtubeMatch && youtubeMatch[2].length === 11) {
-      return `https://www.youtube.com/embed/${youtubeMatch[2]}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0`;
+      return `https://www.youtube.com/embed/${youtubeMatch[2]}?modestbranding=1&playsinline=1&rel=0`;
     }
     
     if (url.includes('loom.com/embed')) {
@@ -55,29 +54,14 @@ export const ProjectCard = ({
       <Card className="overflow-hidden">
         <div className="flex flex-col md:flex-row">
           {/* Media Section - Takes 40% width on desktop */}
-          <div 
-            className="relative md:w-2/5 aspect-video md:aspect-[4/3]"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
+          <div className="relative md:w-2/5 aspect-video md:aspect-[4/3]">
             {video_url ? (
-              isHovered ? (
-                <iframe
-                  src={getVideoEmbedUrl(video_url)}
-                  className="absolute inset-0 w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              ) : (
-                <div className="relative w-full h-full group bg-slate-800">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Play className="w-16 h-16 text-white/50" />
-                    <span className="absolute bottom-4 text-white/50 text-sm font-medium">
-                      Hover to view demo
-                    </span>
-                  </div>
-                </div>
-              )
+              <iframe
+                src={getVideoEmbedUrl(video_url)}
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             ) : (
               <div className="w-full h-full bg-slate-800 flex items-center justify-center">
                 <span className="text-white/50 text-sm">No demo available</span>
