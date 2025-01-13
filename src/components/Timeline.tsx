@@ -2,22 +2,28 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const timelineItems = [
   {
-    year: "2023 - Present",
-    title: "Senior Software Engineer",
-    company: "Tech Innovation Labs",
-    description: "Leading development of cloud-native applications and mentoring junior developers.",
+    year: "2021 - 2022",
+    title: "Chairman & CEO",
+    company: "Emerge (Metaverse Venture Studio)",
+    description: "Led development of pixel-streamed metaverse environments using Unreal Engine. Secured pre-seed and seed funding, developed $EMERGE tokenomics, and managed a cross-functional team of 10. Reduced operational costs by 40% through strategic offshore team establishment.",
   },
   {
-    year: "2020 - 2023",
-    title: "Full Stack Developer",
-    company: "Digital Solutions Inc",
-    description: "Developed and maintained enterprise web applications using React and Node.js.",
+    year: "2021",
+    title: "Product Manager",
+    company: "Space Metaverse",
+    description: "Conducted user research across established and decentralized metaverse platforms. Built strategic partnerships with NFT artists and played a key role in securing $7M in venture capital funding. Featured in CoinDesk.",
   },
   {
-    year: "2018 - 2020",
-    title: "Frontend Developer",
-    company: "Creative Web Agency",
-    description: "Created responsive web interfaces and improved user experience for client projects.",
+    year: "2019 - 2020",
+    title: "Digital Transformation Consultant",
+    company: "Benares Restaurant and Bar",
+    description: "Implemented comprehensive digital transformation strategy achieving 365% ROI within 100 days. Increased organic social reach by 68,000 with 47,000 interactions. Generated £10,000 in Chef Masterclass sales with 5.65x ROI.",
+  },
+  {
+    year: "2018 - 2019",
+    title: "Product Onboarding & Partnerships Consultant",
+    company: "Saffron",
+    description: "Led client onboarding for university societies in London and LA. Established strategic partnerships contributing to successful seed funding of $300,000. Provided key product strategy insights based on user feedback.",
   },
 ];
 
