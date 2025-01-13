@@ -59,7 +59,7 @@ export const Hero = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="inline-block text-sm uppercase tracking-wider text-light-cyan mb-4 font-medium"
           >
-            Product Manager & AI Entrepreneur
+            AI Product Strategist & Entrepreneur
           </motion.span>
           
           <motion.h1 
