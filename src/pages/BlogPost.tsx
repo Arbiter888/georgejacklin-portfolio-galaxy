@@ -24,8 +24,8 @@ const BlogPost = () => {
   });
 
   return (
-    <div className="min-h-screen bg-slate-900 py-20 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-slate-900">
+      <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="mb-8">
           <Link 
             to="/blogs" 
@@ -47,7 +47,7 @@ const BlogPost = () => {
             transition={{ duration: 0.5 }}
             className="bg-slate-800 rounded-xl overflow-hidden"
           >
-            <div className="relative h-96 overflow-hidden">
+            <div className="relative h-[400px] overflow-hidden">
               <img
                 src={blog.cover_image || "/placeholder.svg"}
                 alt={blog.title}
@@ -59,21 +59,32 @@ const BlogPost = () => {
                 {blog.tags?.map((tag: string, index: number) => (
                   <span
                     key={index}
-                    className="px-2 py-1 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-full"
+                    className="px-3 py-1 text-sm font-medium bg-blue-500/10 text-blue-400 rounded-full"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <h1 className="text-3xl font-bold text-white mb-4">
+              <h1 className="text-4xl font-bold text-white mb-4">
                 {blog.title}
               </h1>
-              <div className="text-sm text-slate-500 mb-6">
+              <div className="text-sm text-slate-400 mb-8">
                 {blog.published_at &&
                   format(new Date(blog.published_at), "MMMM d, yyyy")}
               </div>
               <div 
-                className="prose prose-invert max-w-none prose-lg"
+                className="prose prose-invert prose-lg max-w-none
+                  prose-headings:text-white
+                  prose-p:text-slate-300
+                  prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300
+                  prose-strong:text-white
+                  prose-code:text-blue-300
+                  prose-ul:text-slate-300
+                  prose-ol:text-slate-300
+                  prose-li:text-slate-300
+                  prose-table:text-slate-300
+                  prose-img:rounded-lg
+                  prose-iframe:w-full prose-iframe:aspect-video prose-iframe:rounded-lg"
                 dangerouslySetInnerHTML={{ __html: blog.content }}
               />
             </div>
