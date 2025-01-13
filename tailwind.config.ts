@@ -22,11 +22,6 @@ export default {
         sans: ["Inter", "sans-serif"],
       },
       colors: {
-        'primary-purple': '#9b87f5',
-        'secondary-purple': '#7E69AB',
-        'tertiary-purple': '#6E59A5',
-        'magenta-pink': '#D946EF',
-        'soft-pink': '#FFDEE2',
         'federal-blue': '#03045e',
         'marian-blue': '#023e8a',
         'honolulu-blue': '#0077b6',
