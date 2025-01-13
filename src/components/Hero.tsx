@@ -13,7 +13,7 @@ export const Hero = () => {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
-        <meta property="og:description" content="Product Manager and AI entrepreneur specializing in AI solutions for email marketing and business automation." />
+        <meta property="og:description" content="Product Manager and AI entrepreneur specializing in AI solutions and digital transformation." />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -77,9 +77,7 @@ export const Hero = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="text-lg md:text-xl text-light-cyan/90 mb-8 leading-relaxed"
           >
-            Product Manager and technology entrepreneur specializing in AI, Web3, and digital transformation. 
-            Leading innovation through Multiplier AI, an AI agent marketplace for startup founders, and developing 
-            cutting-edge solutions in personal coaching and legal tech.
+            Product Manager and AI entrepreneur with a proven track record of building innovative digital products. Specializing in transforming ideas into successful AI-enabled solutions, from intelligent agent marketplaces to automated marketing platforms. My portfolio showcases a range of cutting-edge projects that demonstrate expertise in product strategy, AI integration, and digital transformation.
           </motion.p>
 
           <motion.div
