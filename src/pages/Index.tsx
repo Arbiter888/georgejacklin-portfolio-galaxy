@@ -4,6 +4,8 @@ import { Projects } from "@/components/Projects";
 import { Timeline } from "@/components/Timeline";
 import { BlogSection } from "@/components/BlogSection";
 import { Contact } from "@/components/Contact";
+import { Navigation } from "@/components/Navigation";
+import { Background } from "@/components/Background";
 
 const Index = () => {
   return (
@@ -13,8 +15,12 @@ const Index = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-background text-foreground"
     >
-      <Hero />
+      <Navigation />
+      <section id="home">
+        <Hero />
+      </section>
       <Timeline />
+      <Background />
       <Projects />
       <BlogSection />
       <Contact />
