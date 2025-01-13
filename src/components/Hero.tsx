@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Brain, Globe, Rocket } from "lucide-react";
+import { ChevronDown, Mail, Gift, Globe } from "lucide-react";
 import { Helmet } from "react-helmet";
 
 export const Hero = () => {
@@ -7,13 +7,13 @@ export const Hero = () => {
     <>
       <Helmet>
         <title>George Jacklin | Product Manager & AI Entrepreneur</title>
-        <meta name="description" content="George Jacklin | Product Manager and AI entrepreneur specializing in AI solutions for personal coaching, legal tech, and startup tools. Leading digital transformation through innovative products." />
-        <meta name="keywords" content="Product Manager, AI Entrepreneur, AI Solutions, Legal Tech Innovation, Web3 Technology, AI Product Development, Technology Strategy, Digital Innovation, AI Personal Coaching, AI Agent Marketplace" />
+        <meta name="description" content="George Jacklin | Product Manager and AI entrepreneur specializing in AI solutions for email marketing, customer rewards, and business automation. Leading digital transformation through innovative products." />
+        <meta name="keywords" content="Product Manager, AI Entrepreneur, Email Marketing, AI Solutions, Customer Rewards, Business Automation, Technology Strategy, Digital Innovation, AI Email Generation, Smart Micro-Websites" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
-        <meta property="og:description" content="Product Manager and AI entrepreneur specializing in AI solutions for personal coaching, legal tech, and startup tools." />
+        <meta property="og:description" content="Product Manager and AI entrepreneur specializing in AI solutions for email marketing and business automation." />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -77,9 +77,10 @@ export const Hero = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="text-lg md:text-xl text-light-cyan/90 mb-8 leading-relaxed"
           >
-            Product Manager and technology entrepreneur specializing in AI, Web3, and digital transformation. 
-            Leading innovation through Multiplier AI, an AI agent marketplace for startup founders, 
-            and developing cutting-edge solutions in personal coaching and legal tech.
+            Product Manager and technology entrepreneur specializing in AI and digital transformation. 
+            Leading innovation through LevelUP!, an AI-powered email marketing platform that helps businesses 
+            create engaging campaigns instantly, implement smart reward systems, and showcase their services 
+            through beautiful micro-websites.
           </motion.p>
 
           <motion.div
@@ -89,16 +90,16 @@ export const Hero = () => {
             className="flex justify-center gap-8 mb-12"
           >
             <div className="flex flex-col items-center">
-              <Brain className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">AI Innovation</span>
+              <Mail className="w-8 h-8 text-light-cyan mb-2" />
+              <span className="text-sm text-light-cyan/80">Email Marketing</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <Gift className="w-8 h-8 text-light-cyan mb-2" />
+              <span className="text-sm text-light-cyan/80">Smart Rewards</span>
             </div>
             <div className="flex flex-col items-center">
               <Globe className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">Web3 Tech</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <Rocket className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">Digital Growth</span>
+              <span className="text-sm text-light-cyan/80">Micro-Websites</span>
             </div>
           </motion.div>
         </motion.div>
