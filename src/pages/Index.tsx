@@ -5,7 +5,6 @@ import { Timeline } from "@/components/Timeline";
 import { BlogSection } from "@/components/BlogSection";
 import { Contact } from "@/components/Contact";
 import { Navigation } from "@/components/Navigation";
-import { Background } from "@/components/Background";
 
 const Index = () => {
   return (
@@ -20,7 +19,6 @@ const Index = () => {
         <Hero />
       </section>
       <Timeline />
-      <Background />
       <Projects />
       <BlogSection />
       <Contact />
