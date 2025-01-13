@@ -173,8 +173,11 @@ export type Database = {
           company: string
           created_at: string
           description: string
+          detailed_description: string[] | null
+          employment_type: string | null
           end_date: string | null
           id: string
+          location: string | null
           order_index: number
           start_date: string
           title: string
@@ -184,8 +187,11 @@ export type Database = {
           company: string
           created_at?: string
           description: string
+          detailed_description?: string[] | null
+          employment_type?: string | null
           end_date?: string | null
           id?: string
+          location?: string | null
           order_index?: number
           start_date: string
           title: string
@@ -195,8 +201,11 @@ export type Database = {
           company?: string
           created_at?: string
           description?: string
+          detailed_description?: string[] | null
+          employment_type?: string | null
           end_date?: string | null
           id?: string
+          location?: string | null
           order_index?: number
           start_date?: string
           title?: string
