@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Mail, Gift, Globe } from "lucide-react";
+import { ChevronDown, Brain, Globe, Rocket } from "lucide-react";
 import { Helmet } from "react-helmet";
 
 export const Hero = () => {
@@ -7,18 +7,18 @@ export const Hero = () => {
     <>
       <Helmet>
         <title>George Jacklin | Product Manager & AI Entrepreneur</title>
-        <meta name="description" content="George Jacklin | Product Manager and AI entrepreneur specializing in AI solutions for email marketing, customer rewards, and business automation. Leading digital transformation through innovative products." />
-        <meta name="keywords" content="Product Manager, AI Entrepreneur, Email Marketing, AI Solutions, Customer Rewards, Business Automation, Technology Strategy, Digital Innovation, AI Email Generation, Smart Micro-Websites" />
+        <meta name="description" content="George Jacklin | Product Manager and technology entrepreneur specializing in AI, Web3, and digital transformation. Leading innovation through Multiplier AI." />
+        <meta name="keywords" content="Product Manager, AI Entrepreneur, Web3, Digital Transformation, AI Innovation, Technology Strategy, Digital Growth, Multiplier AI, Personal Coaching, Legal Tech" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
-        <meta property="og:description" content="Product Manager and AI entrepreneur specializing in AI solutions for email marketing and business automation." />
+        <meta property="og:description" content="Product Manager and technology entrepreneur specializing in AI, Web3, and digital transformation." />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
-        <meta name="twitter:description" content="Product Manager and AI entrepreneur specializing in AI solutions and digital transformation." />
+        <meta name="twitter:description" content="Product Manager and technology entrepreneur specializing in AI, Web3, and digital transformation." />
         
         {/* Additional SEO */}
         <meta name="author" content="George Jacklin" />
@@ -29,7 +29,7 @@ export const Hero = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: 'url("/lovable-uploads/2b42e154-9c8d-4796-bd1e-bfeef72f3a41.png")',
+            backgroundImage: 'url("/lovable-uploads/b1e82aa6-ee21-431b-96b2-cc86a4972c26.png")',
             zIndex: 0 
           }}
         />
@@ -77,10 +77,9 @@ export const Hero = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="text-lg md:text-xl text-light-cyan/90 mb-8 leading-relaxed"
           >
-            Product Manager and technology entrepreneur specializing in AI and digital transformation. 
-            Leading innovation through LevelUP!, an AI-powered email marketing platform that helps businesses 
-            create engaging campaigns instantly, implement smart reward systems, and showcase their services 
-            through beautiful micro-websites.
+            Product Manager and technology entrepreneur specializing in AI, Web3, and digital transformation. 
+            Leading innovation through Multiplier AI, an AI agent marketplace for startup founders, and developing 
+            cutting-edge solutions in personal coaching and legal tech.
           </motion.p>
 
           <motion.div
@@ -90,16 +89,16 @@ export const Hero = () => {
             className="flex justify-center gap-8 mb-12"
           >
             <div className="flex flex-col items-center">
-              <Mail className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">Email Marketing</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <Gift className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">Smart Rewards</span>
+              <Brain className="w-8 h-8 text-light-cyan mb-2" />
+              <span className="text-sm text-light-cyan/80">AI Innovation</span>
             </div>
             <div className="flex flex-col items-center">
               <Globe className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">Micro-Websites</span>
+              <span className="text-sm text-light-cyan/80">Web3 Tech</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <Rocket className="w-8 h-8 text-light-cyan mb-2" />
+              <span className="text-sm text-light-cyan/80">Digital Growth</span>
             </div>
           </motion.div>
         </motion.div>
