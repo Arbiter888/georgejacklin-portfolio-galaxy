@@ -5,6 +5,7 @@ import { Timeline } from "@/components/Timeline";
 import { BlogSection } from "@/components/BlogSection";
 import { Contact } from "@/components/Contact";
 import { Navigation } from "@/components/Navigation";
+import { LinkedInButton } from "@/components/LinkedInButton";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <Projects />
       <BlogSection />
       <Contact />
+      <LinkedInButton />
     </motion.div>
   );
 };
