@@ -9,10 +9,20 @@ export const Hero = () => {
         <title>George Jacklin | Product Manager & AI Entrepreneur</title>
         <meta name="description" content="George Jacklin | Product Manager and AI entrepreneur specializing in AI solutions for personal coaching, legal tech, and startup tools. Leading digital transformation through innovative products." />
         <meta name="keywords" content="Product Manager, AI Entrepreneur, AI Solutions, Legal Tech Innovation, Web3 Technology, AI Product Development, Technology Strategy, Digital Innovation, AI Personal Coaching, AI Agent Marketplace" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
         <meta property="og:description" content="Product Manager and AI entrepreneur specializing in AI solutions for personal coaching, legal tech, and startup tools." />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
         <meta name="twitter:description" content="Product Manager and AI entrepreneur specializing in AI solutions and digital transformation." />
+        
+        {/* Additional SEO */}
+        <meta name="author" content="George Jacklin" />
+        <meta name="robots" content="index, follow" />
       </Helmet>
       <section className="min-h-screen flex flex-col justify-center items-center px-4 relative bg-gradient-to-br from-federal-blue via-honolulu-blue to-pacific-cyan text-white">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0aDR2MWgtNHYtMXptMC0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40 mix-blend-overlay"></div>
@@ -47,8 +57,9 @@ export const Hero = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="text-lg md:text-xl text-light-cyan/90 mb-8 leading-relaxed"
           >
-            Pioneering AI solutions in personal coaching, legal tech, and startup tools through Multiplier AI. 
-            Building the future of digital transformation with innovative products that empower businesses and individuals.
+            Product Manager and technology entrepreneur specializing in AI, Web3, and digital transformation. 
+            Leading innovation through Multiplier AI, an AI agent marketplace for startup founders, 
+            and developing cutting-edge solutions in personal coaching and legal tech.
           </motion.p>
 
           <motion.div
