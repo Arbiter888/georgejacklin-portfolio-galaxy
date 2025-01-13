@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Badge } from "./ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardContent } from "./ui/card";
+import { Play } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -38,12 +39,15 @@ export const ProjectCard = ({ title, description, image, videoUrl, tags, index }
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      whileHover={{ y: -5 }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+      className="h-full"
     >
-      <Card className="overflow-hidden group bg-gradient-to-br from-federal-blue via-honolulu-blue to-pacific-cyan border-blue-green/20">
-        <div className="relative h-[300px]">
+      <Card className="overflow-hidden h-full flex flex-col">
+        {/* Media Section */}
+        <div 
+          className="relative aspect-video cursor-pointer"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           {videoUrl && isHovered ? (
             <iframe
               src={getYouTubeEmbedUrl(videoUrl)}
@@ -52,32 +56,44 @@ export const ProjectCard = ({ title, description, image, videoUrl, tags, index }
               allowFullScreen
             />
           ) : (
-            <img
-              src={image}
-              alt={title}
-              className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700"
-            />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-federal-blue/90 via-honolulu-blue/80 to-pacific-cyan/70">
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <h3 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-non-photo-blue to-white">
-                {title}
-              </h3>
-              <p className="text-light-cyan/90 mb-4">{description}</p>
-              <div className="flex flex-wrap gap-2">
-                {tags.map((tag) => (
-                  <Badge 
-                    key={tag} 
-                    variant="secondary" 
-                    className="bg-pacific-cyan/10 text-light-cyan hover:bg-pacific-cyan/20 transition-colors"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
+            <div className="relative w-full h-full group">
+              <img
+                src={image}
+                alt={title}
+                className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700"
+              />
+              {videoUrl && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Play className="w-16 h-16 text-white" />
+                  <span className="absolute bottom-4 text-white text-sm font-medium">
+                    Hover to view demo
+                  </span>
+                </div>
+              )}
             </div>
-          </div>
+          )}
         </div>
+
+        {/* Content Section */}
+        <CardContent className="flex-1 p-6 bg-gradient-to-br from-federal-blue via-honolulu-blue to-pacific-cyan">
+          <h3 className="text-2xl font-bold mb-3 text-white">
+            {title}
+          </h3>
+          <p className="text-light-cyan/90 mb-4 line-clamp-3">
+            {description}
+          </p>
+          <div className="flex flex-wrap gap-2 mt-auto">
+            {tags.map((tag) => (
+              <Badge 
+                key={tag} 
+                variant="secondary" 
+                className="bg-pacific-cyan/10 text-light-cyan hover:bg-pacific-cyan/20 transition-colors"
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
       </Card>
     </motion.div>
   );
