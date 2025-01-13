@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
-import { ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { ArrowRight, Lock } from "lucide-react";
+import { SubscribeDialog } from "./SubscribeDialog";
 
 export const BlogSection = () => {
-  const navigate = useNavigate();
+  const [selectedBlog, setSelectedBlog] = useState<any>(null);
+  const [showDialog, setShowDialog] = useState(false);
+
   const { data: blogs, isLoading } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
@@ -20,6 +23,22 @@ export const BlogSection = () => {
       return data;
     },
   });
+
+  const handleAccessClick = (blog: any) => {
+    setSelectedBlog(blog);
+    setShowDialog(true);
+  };
+
+  const handleSubscriptionSuccess = () => {
+    // Store access state in localStorage
+    localStorage.setItem("hasAccess", "true");
+    // Open the blog in a new tab
+    if (selectedBlog) {
+      window.open(`/blogs/${selectedBlog.slug}`, "_blank");
+    }
+  };
+
+  const hasAccess = localStorage.getItem("hasAccess") === "true";
 
   return (
     <section className="py-20 px-4 bg-slate-900" id="blog">
@@ -36,7 +55,7 @@ export const BlogSection = () => {
               Free Guides & Resources
             </h2>
             <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
-              Practical insights and detailed guides to help you build better products and make informed decisions.
+              Subscribe to get instant access to practical insights and detailed guides to help you build better products.
             </p>
           </div>
 
@@ -54,7 +73,7 @@ export const BlogSection = () => {
                   transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
                   className="bg-slate-800 rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300 cursor-pointer"
-                  onClick={() => navigate(`/blogs/${blog.slug}`)}
+                  onClick={() => hasAccess ? window.open(`/blogs/${blog.slug}`, "_blank") : handleAccessClick(blog)}
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -65,7 +84,7 @@ export const BlogSection = () => {
                   </div>
                   <div className="p-6">
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {blog.tags?.map((tag, index) => (
+                      {blog.tags?.map((tag: string, index: number) => (
                         <span
                           key={index}
                           className="px-2 py-1 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-full"
@@ -86,7 +105,15 @@ export const BlogSection = () => {
                           format(new Date(blog.published_at), "MMM d, yyyy")}
                       </span>
                       <span className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
-                        Read more <ArrowRight className="ml-2 w-4 h-4" />
+                        {hasAccess ? (
+                          <>
+                            Read more <ArrowRight className="ml-2 w-4 h-4" />
+                          </>
+                        ) : (
+                          <>
+                            Get Access <Lock className="ml-2 w-4 h-4" />
+                          </>
+                        )}
                       </span>
                     </div>
                   </div>
@@ -96,6 +123,13 @@ export const BlogSection = () => {
           )}
         </motion.div>
       </div>
+
+      <SubscribeDialog
+        isOpen={showDialog}
+        onClose={() => setShowDialog(false)}
+        onSuccess={handleSubscriptionSuccess}
+        blogTitle={selectedBlog?.title || ""}
+      />
     </section>
   );
 };
