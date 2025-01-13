@@ -43,7 +43,6 @@ export const Navigation = () => {
           { id: "home", label: "Home" },
           { id: "experience", label: "Experience" },
           { id: "education", label: "Education" },
-          { id: "background", label: "Background" },
           { id: "projects", label: "Projects" },
           { id: "blog", label: "Blog" },
           { id: "contact", label: "Contact" },

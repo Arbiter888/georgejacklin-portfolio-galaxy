@@ -22,9 +22,12 @@ export const Projects = () => {
     return (
       <section className="py-20 px-4 bg-slate-950">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-            Featured Projects
+          <h2 className="text-4xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
+            AI-Powered Innovation Projects
           </h2>
+          <p className="text-light-cyan/90 text-center mb-12 max-w-2xl mx-auto">
+            Showcasing transformative AI solutions that make professional services more accessible and efficient
+          </p>
           <div className="space-y-8">
             {[1, 2, 3].map((i) => (
               <div key={i} className="h-[400px] bg-slate-800 animate-pulse rounded-lg" />
@@ -43,9 +46,12 @@ export const Projects = () => {
   return (
     <section className="py-20 px-4 bg-slate-950" id="projects">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-          Featured Projects
+        <h2 className="text-4xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
+          AI-Powered Innovation Projects
         </h2>
+        <p className="text-light-cyan/90 text-center mb-12 max-w-2xl mx-auto">
+          Showcasing transformative AI solutions that make professional services more accessible and efficient
+        </p>
         <div className="space-y-8">
           {projects?.map((project, index) => (
             <ProjectCard 
