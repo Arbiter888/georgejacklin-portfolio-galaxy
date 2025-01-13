@@ -1,5 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Education } from "./Education";
+import { Button } from "./ui/button";
+import { FileText } from "lucide-react";
 
 const timelineItems = [
   {
@@ -35,6 +37,14 @@ const timelineItems = [
 ];
 
 export const Timeline = () => {
+  const handleCVRequest = () => {
+    const email = "george@multiplier.info";
+    const subject = "CV Request";
+    const body = "Hi George,\n\nI came across your portfolio and would be interested in reviewing your full CV.\n\nBest regards";
+    
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <section className="py-20 px-4 bg-slate-900" id="background">
       <div className="max-w-6xl mx-auto">
@@ -74,6 +84,18 @@ export const Timeline = () => {
           <div>
             <h3 className="text-2xl font-semibold mb-8 text-white">Education</h3>
             <Education />
+          </div>
+
+          <div className="flex justify-center pt-8">
+            <Button
+              onClick={handleCVRequest}
+              variant="outline"
+              size="lg"
+              className="gap-2 border-blue-500/20 bg-blue-500/10 text-blue-100 hover:bg-blue-500/20 hover:text-white transition-colors animate-fadeIn"
+            >
+              <FileText className="w-4 h-4" />
+              Request Full CV (Resume)
+            </Button>
           </div>
         </div>
       </div>
