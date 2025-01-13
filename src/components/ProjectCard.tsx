@@ -116,7 +116,7 @@ export const ProjectCard = ({
                     GitHub
                   </Button>
                 )}
-                {live_url && (
+                {live_url && !title.toLowerCase().includes('multiplier ai') && (
                   <Button
                     variant="secondary"
                     className="bg-pacific-cyan/10 text-light-cyan hover:bg-pacific-cyan/20"
