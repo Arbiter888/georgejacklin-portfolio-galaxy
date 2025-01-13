@@ -55,7 +55,7 @@ const AdminSidebar = () => {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton 
                     asChild
-                    active={location.pathname === item.href}
+                    isActive={location.pathname === item.href}
                   >
                     <Link to={item.href}>
                       <item.icon className="h-4 w-4" />
