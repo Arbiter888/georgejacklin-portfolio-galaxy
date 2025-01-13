@@ -72,9 +72,10 @@ const BlogPost = () => {
                 {blog.published_at &&
                   format(new Date(blog.published_at), "MMMM d, yyyy")}
               </div>
-              <div className="prose prose-invert max-w-none">
-                {blog.content}
-              </div>
+              <div 
+                className="prose prose-invert max-w-none prose-lg"
+                dangerouslySetInnerHTML={{ __html: blog.content }}
+              />
             </div>
           </motion.article>
         ) : (
