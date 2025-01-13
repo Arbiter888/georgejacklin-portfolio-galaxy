@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Brain, Globe, RocketLaunch } from "lucide-react";
+import { ChevronDown, Brain, Globe, Rocket } from "lucide-react";
 import { Helmet } from "react-helmet";
 
 export const Hero = () => {
@@ -7,12 +7,12 @@ export const Hero = () => {
     <>
       <Helmet>
         <title>George Jacklin | Product Manager & AI Entrepreneur</title>
-        <meta name="description" content="George Jacklin | Product Manager and AI entrepreneur specializing in metaverse development, digital transformation, and innovative AI solutions across coaching, legal tech, and startup tools." />
-        <meta name="keywords" content="Product Manager, AI Entrepreneur, Metaverse Development, Digital Transformation, Legal Tech Innovation, Web3 Technology, Venture Studio Leadership, AI Product Development, Technology Strategy, Digital Innovation" />
+        <meta name="description" content="George Jacklin | Product Manager and AI entrepreneur specializing in AI solutions for personal coaching, legal tech, and startup tools. Leading digital transformation through innovative products." />
+        <meta name="keywords" content="Product Manager, AI Entrepreneur, AI Solutions, Legal Tech Innovation, Web3 Technology, AI Product Development, Technology Strategy, Digital Innovation, AI Personal Coaching, AI Agent Marketplace" />
         <meta property="og:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
-        <meta property="og:description" content="Product Manager and AI entrepreneur specializing in metaverse development, digital transformation, and innovative AI solutions." />
+        <meta property="og:description" content="Product Manager and AI entrepreneur specializing in AI solutions for personal coaching, legal tech, and startup tools." />
         <meta name="twitter:title" content="George Jacklin | Product Manager & AI Entrepreneur" />
-        <meta name="twitter:description" content="Product Manager and AI entrepreneur specializing in metaverse development and AI solutions." />
+        <meta name="twitter:description" content="Product Manager and AI entrepreneur specializing in AI solutions and digital transformation." />
       </Helmet>
       <section className="min-h-screen flex flex-col justify-center items-center px-4 relative bg-gradient-to-br from-federal-blue via-honolulu-blue to-pacific-cyan text-white">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0aDR2MWgtNHYtMXptMC0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHptMi0yaDF2NGgtMXYtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40 mix-blend-overlay"></div>
@@ -47,8 +47,8 @@ export const Hero = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="text-lg md:text-xl text-light-cyan/90 mb-8 leading-relaxed"
           >
-            Pioneering AI solutions in personal coaching, legal tech, and startup tools. 
-            Building the future of digital transformation through innovative products that empower businesses and individuals.
+            Pioneering AI solutions in personal coaching, legal tech, and startup tools through Multiplier AI. 
+            Building the future of digital transformation with innovative products that empower businesses and individuals.
           </motion.p>
 
           <motion.div
@@ -66,7 +66,7 @@ export const Hero = () => {
               <span className="text-sm text-light-cyan/80">Web3 Tech</span>
             </div>
             <div className="flex flex-col items-center">
-              <RocketLaunch className="w-8 h-8 text-light-cyan mb-2" />
+              <Rocket className="w-8 h-8 text-light-cyan mb-2" />
               <span className="text-sm text-light-cyan/80">Digital Growth</span>
             </div>
           </motion.div>
