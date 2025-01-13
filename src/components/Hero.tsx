@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Mail, Gift, Globe } from "lucide-react";
+import { ChevronDown, UserRound, Briefcase, Star } from "lucide-react";
 import { Helmet } from "react-helmet";
 
 export const Hero = () => {
@@ -77,10 +77,9 @@ export const Hero = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="text-lg md:text-xl text-light-cyan/90 mb-8 leading-relaxed"
           >
-            Product Manager and technology entrepreneur specializing in AI and digital transformation. 
-            Leading innovation through LevelUP!, an AI-powered email marketing platform that helps businesses 
-            create engaging campaigns instantly, implement smart reward systems, and showcase their services 
-            through beautiful micro-websites.
+            Product Manager and technology entrepreneur specializing in AI, Web3, and digital transformation. 
+            Leading innovation through Multiplier AI, an AI agent marketplace for startup founders, and developing 
+            cutting-edge solutions in personal coaching and legal tech.
           </motion.p>
 
           <motion.div
@@ -90,16 +89,16 @@ export const Hero = () => {
             className="flex justify-center gap-8 mb-12"
           >
             <div className="flex flex-col items-center">
-              <Mail className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">Email Marketing</span>
+              <UserRound className="w-8 h-8 text-light-cyan mb-2" />
+              <span className="text-sm text-light-cyan/80">Product Manager</span>
             </div>
             <div className="flex flex-col items-center">
-              <Gift className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">Smart Rewards</span>
+              <Briefcase className="w-8 h-8 text-light-cyan mb-2" />
+              <span className="text-sm text-light-cyan/80">Fractional Executive</span>
             </div>
             <div className="flex flex-col items-center">
-              <Globe className="w-8 h-8 text-light-cyan mb-2" />
-              <span className="text-sm text-light-cyan/80">Micro-Websites</span>
+              <Star className="w-8 h-8 text-light-cyan mb-2" />
+              <span className="text-sm text-light-cyan/80">Former Founder</span>
             </div>
           </motion.div>
         </motion.div>
