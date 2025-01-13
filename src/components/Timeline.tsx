@@ -36,7 +36,7 @@ export const Timeline = () => {
           Experience & Education
         </h2>
         
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="space-y-16">
           <div>
             <h3 className="text-2xl font-semibold mb-8 text-white">Professional Experience</h3>
             <div className="space-y-8">
