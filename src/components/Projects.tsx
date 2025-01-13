@@ -16,6 +16,8 @@ export const Projects = () => {
   const { data: projects, isLoading, error } = useQuery({
     queryKey: ['projects'],
     queryFn: fetchProjects,
+    staleTime: 1000, // Data becomes stale after 1 second
+    refetchInterval: 5000, // Refetch every 5 seconds
   });
 
   if (isLoading) {
