@@ -31,20 +31,21 @@ export const ProjectCard = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    if (videoRef.current && isHovered && video_url) {
-      videoRef.current.play().catch((error) => {
-        console.log("Video autoplay failed:", error);
-      });
+  const getVideoEmbedUrl = (url: string) => {
+    // Check if it's a YouTube URL
+    const youtubeRegExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const youtubeMatch = url.match(youtubeRegExp);
+    
+    if (youtubeMatch && youtubeMatch[2].length === 11) {
+      return `https://www.youtube.com/embed/${youtubeMatch[2]}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0`;
     }
-  }, [isHovered, video_url]);
-
-  const getYouTubeEmbedUrl = (url: string) => {
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-    const match = url.match(regExp);
-    return match && match[2].length === 11
-      ? `https://www.youtube.com/embed/${match[2]}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0`
-      : null;
+    
+    // Check if it's a Loom URL
+    if (url.includes('loom.com/embed')) {
+      return url;
+    }
+    
+    return null;
   };
 
   return (
@@ -64,7 +65,7 @@ export const ProjectCard = ({
         >
           {video_url && isHovered ? (
             <iframe
-              src={getYouTubeEmbedUrl(video_url)}
+              src={getVideoEmbedUrl(video_url)}
               className="absolute inset-0 w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
