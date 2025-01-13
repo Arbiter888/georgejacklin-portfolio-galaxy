@@ -4,7 +4,7 @@ import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import Blogs from "./pages/Blogs";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AdminLayout from "./components/layouts/AdminLayout";
+import { AdminLayout } from "./components/layouts/AdminLayout";
 import "./App.css";
 
 function App() {
