@@ -20,6 +20,7 @@ interface ProjectCardProps {
 export const ProjectCard = ({ 
   title, 
   description, 
+  image_url,
   video_url, 
   github_url,
   live_url,
@@ -61,6 +62,12 @@ export const ProjectCard = ({
                 className="absolute inset-0 w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+              />
+            ) : image_url ? (
+              <img
+                src={image_url}
+                alt={title}
+                className="absolute inset-0 w-full h-full object-cover"
               />
             ) : (
               <div className="w-full h-full bg-slate-800 flex items-center justify-center">
