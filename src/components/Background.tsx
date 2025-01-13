@@ -17,7 +17,15 @@ export const Background = () => {
           
           <div className="bg-slate-800 rounded-xl p-8 shadow-xl">
             <p className="text-slate-300 leading-relaxed mb-6">
-              [Your background content will go here - This section will be updated with your story about learning market research and customer insights through your father's business]
+              My journey in understanding markets and customer insights began long before my professional career. As the son of a pioneering market researcher, I was immersed in the world of data and customer understanding from an early age. Growing up, I traveled extensively with my father, who worked with some of the world's leading organizations including the Financial Times, BBC, CNN, and The Economist.
+            </p>
+            
+            <p className="text-slate-300 leading-relaxed mb-6">
+              Through his work at Ipsos Media, Objective Research, and later Think Media Consultancy, I witnessed firsthand how deep market understanding shapes successful businesses. From watching qualitative research sessions to understanding how global brands make data-driven decisions, these early experiences laid the foundation for my current work in AI and digital transformation.
+            </p>
+            
+            <p className="text-slate-300 leading-relaxed">
+              Today, I continue to collaborate with my father, bringing his decades of market research expertise to modern startups, combining traditional insight methodologies with cutting-edge AI solutions.
             </p>
           </div>
         </motion.div>
