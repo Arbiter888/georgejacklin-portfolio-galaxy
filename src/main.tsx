@@ -10,13 +10,14 @@ const queryClient = new QueryClient({
     queries: {
       staleTime: 60 * 1000, // 1 minute
       retry: 1,
+      refetchOnWindowFocus: false, // Disable automatic refetching on window focus
     },
   },
 })
 
 createRoot(document.getElementById("root")!).render(
   <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <App />
     </BrowserRouter>
   </QueryClientProvider>
